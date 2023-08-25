@@ -32,16 +32,22 @@ inquirer
     .then(response => {
         if (response.shape === "circle") {
             const circle = new Circle(response.text, response.textColor, response.shapeColor)
-            console.table(circle)
-            console.log(circle.render())
+            // console.table(circle)
+            fs.writeFile("./examples/logo.svg", circle.render(), (err)=>{
+                console.log("Generated logo.svg")
+            })
             
         } else if (response.shape === "square") {
             const square = new Square(response.text, response.textColor, response.shapeColor)
-            console.table(square)
-            console.log(square.render())
+            // console.table(square)
+            fs.writeFile("./examples/logo.svg", square.render(), (err)=>{
+                console.log("Generated logo.svg")
+            })
         } else {
             const triangle = new Triangle(response.text, response.textColor, response.shapeColor)
-            console.table(triangle)
-            console.log(triangle.render())
+            // console.table(triangle)
+            fs.writeFile("./examples/logo.svg", triangle.render(), (err)=>{
+                console.log("Generated logo.svg")
+            })
         }
     })
